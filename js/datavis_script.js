@@ -54,9 +54,9 @@ function init() {
   for (var i = 0; i < 100; i++) {
     // particle = new THREE.Sprite(material);
 
-    var geometry = new THREE.BoxGeometry(1, 1, 1);
+    var geometry2 = new THREE.BoxGeometry(1, 1, 1);
     var material = new THREE.MeshLambertMaterial({ color: "#433F81" });
-    particle = new THREE.Mesh(geometry, material);
+    particle = new THREE.Mesh(geometry2, material);
 
     particle.position.x = Math.random() * 2 - 1;
     particle.position.y = Math.random() * 2 - 1;
@@ -65,13 +65,16 @@ function init() {
     particle.position.multiplyScalar(Math.random() * 10 + 450);
     particle.scale.x = particle.scale.y = 10;
     scene.add(particle);
+    console.log(particle.position);
+    console.log(geometry.vertices);
+    // console.log(geometry.vertices[0].x);
     geometry.vertices.push(particle.position);
   }
 
   // lines
   var line = new THREE.Line(
     geometry,
-    new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5 })
+    new THREE.LineBasicMaterial({ color: 0xfdff5f, opacity: 0.5 })
   );
   scene.add(line);
 
